@@ -24,7 +24,7 @@
 
 <body>
     <!------navbar-->
-    <div class="container">
+    <div class="container-fluid menu">
         <header>
             <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #04080a;">
                 <a class="navbar-brand" href="#">Vetmed</a>
@@ -36,30 +36,17 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/index.html">Inicio <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Mascotas</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Servicios</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class="dropdown-item" href="#"></a>
-                                <a class="dropdown-item" href="#">Estética</a>
-                            </div>
-                        </li>
+                       
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Busqueda">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                    </form>
+                    
                 </div>
             </nav>
         </header>
     </div>
     </div>
     <!--botones de accion-->
-  <div class="container">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCrearMascota" data-whatever="@mdo">Crear nueva mascota</button>
+  <div class="container-fluid botones">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCrearMascota" data-whatever="@mdo">Crear nueva mascota</button></div>
     <!------modal-crearMascota-->
     <div class="modal fade" id="modalCrearMascota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -120,9 +107,9 @@
           </div>
         </div>
       </div>
-  </div>
+  
     <!-------------cuerpo-->
-    <div class="container tablaMascotas" id="mascotas" >
+    <div class="container-fluid tablaMascotas" id="mascotas" >
         <!------tablaConsultas-->
         <div class="card" >
             <div class="card-header">
