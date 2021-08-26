@@ -1,6 +1,7 @@
 const listaMascotas = document.getElementById('lista-Mascotas');
 //variables del modal
 const tipo = document.getElementById('tipoRaza');
+const bodyConsultas=document.getElementById("cambio");
 const nombreDueno = document.getElementById('fnombreD');
 const nombreMascota = document.getElementById('fnombreM');
 const formModal = document.getElementById("form-modal");
@@ -141,9 +142,44 @@ function nuevaConsulta(index){
     calergia.value=mascota.alergias
 
 }
+// funcion para agregar campos a consulta
+function cambioTipo(opcion){
+    const varPeso=document.getElementById("peso").value;
+    if(opcion.value==1 || opcion.value==3){
+        bodyConsultas.innerHTML="";
+   
+    }
+if(opcion.value==2){
+let htmlConsulta=`  <div class="form-group fconsult">
+<label for="xiza1" class="col-form-label">Tipo de cirugía:</label>
+<input type="text" class="form-control" id="tipoCirugia">
+<label for="xiza1" class="col-form-label">Xilazina >10Kg 10%:</label>
+<input type="number" class="form-control" id="xiza1" value="${(varPeso*1.3)/100}"readonly>
+<label for="xiza2" class="col-form-label">Xilazina <10Kg 20%:</label>
+<input type="number" class="form-control"value="${(varPeso*1.3)/20}" id="xiza2" readonly>
+<label for="Tramadol" class="col-form-label">Tramadol:</label>
+<input type="number" class="form-control" value="${(varPeso*3)/50}" id="Tramadol" readonly>
+<label for="Zelazol" class="col-form-label" >Zelazol:</label>
+<input type="number" class="form-control" value="${(varPeso*0.05)}" id="Zelazol" readonly>
+<label for="Pentobarbital" class="col-form-label">Pentobarbital:</label>
+<input type="number" class="form-control" id="Pentobarbital" value="${(varPeso*28)/63}" readonly>
+<label for="Pentobarbital" class="col-form-label">Zoletil:</label>
+<input type="number" class="form-control" id="Pentobarbital" value="${(varPeso*0.125)}" readonly>
+<label for="Pentobarbital" class="col-form-label">Vitamina K:</label>
+<input type="number" class="form-control" id="Pentobarbital" value="${(varPeso*2)/20}" readonly>
+</div>`;
+bodyConsultas.innerHTML=htmlConsulta;
 
-function cambioTipo(texto){
-console.log(texto.value);
+}
+if(opcion.value==4){
+    let htmlConsulta=`<div class="form-group fconsult">
+<label for="tipoEstudio" class="col-form-label">Estudio:</label>
+<input type="text" class="form-control" id="tipoEstudio">
+<label for="estudioResultado" class="col-form-label">Resultado:</label>
+<input type="text" class="form-control" id="estudioResultado">
+`;
+bodyConsultas.innerHTML=htmlConsulta;
+}
 
 }
 listarMascotas();
