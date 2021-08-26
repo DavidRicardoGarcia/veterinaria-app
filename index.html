@@ -11,22 +11,29 @@
     
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="css/stilos.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <title>Index</title>
 </head>
 
-<body style="background-color: #E7E7E7;">
+<body style="background-color: #FFFFFF;">
     <!------navbar-->
-    <div class="container-fluid ">
+    <div class="container-fluid barranav">
         <header>
-            <nav class="navbar navbar-expand-sm " style="background-color: #485696; ">
-                <a class="navbar-brand letras"  href="#">Vetmed</a>
+          
+            <nav class="navbar navbar-expand-sm " style="background-color: #110066; height:100px;">
+              <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+                <img style="max-width:70px; margin-top:auto;"
+                     src="g4579.png"></a>
+                <a class="navbar-brand letras"  href="#" style="font-size: xx-large;" >Vetmed</a>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
                     data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                     aria-label="Toggle navigation"></button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class=" letras" href="/index.html" >Inicio <span class="sr-only">(current)</span></a>
+                            <a class=" letras" href="index.html" >Inicio <span class="sr-only">(current)</span></a>
                         </li>
                        
                     </ul>
@@ -36,7 +43,65 @@
         </header>
     </div>
     </div>
-    <!--botones de accion-->
+ 
+    <!-------------cuerpo-->
+
+  <div class="container-fluid" style="margin-top: 50px;">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Mascotas</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Dueños</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Cirugias</button>
+      </li>
+    </ul>
+  </div>
+
+    <div class="tab-content container-fluid"  id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="container-fluid tablaMascotas" id="mascotas" >
+          <!------tablaConsultas-->
+          <div class="card" >
+              <div class="card-header" style="background-color:#90CBFB"; color: "#FFEC67"; "">
+                  <h1>Tabla de mascotas</h1>
+              </div>
+              <div class="card-body table-responsive">
+                  <table class="table table-light" id="hola">
+                      <thead class="thead-light">
+                          <tr>
+                              <th>#</th>
+                              <th>Nombre del dueño</th>
+                              <th>Dirección</th>
+                              <th>Teléfono</th>
+                              <th>Nombre de la mascota</th>
+                              <th>Especie</th>
+                              <th>Sexo</th>
+                              <th>Color</th>
+                              <th>Alergias</th>
+                              <th>Reproductivo</th>
+                              <th>Acciones</th>
+                              <th>Consultas</th>
+                              
+                              
+                          </tr>
+                      </thead>
+                      <tbody id="lista-Mascotas">
+                         
+                      </tbody>
+  
+                  </table>
+              </div>
+          </div>
+      </div>
+      </div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">.qweqweqwe..</div>
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+
+          <!--botones de accion-->
   <div class="container-fluid botones">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCrearMascota" data-whatever="@mdo">Crear nueva mascota</button></div>
     <!------modal-crearMascota-->
@@ -99,64 +164,9 @@
           </div>
         </div>
       </div>
-  
-    <!-------------cuerpo-->
-
-  <div class="container-fluid">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Mascotas</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Dueños</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Cirugias</button>
-      </li>
-    </ul>
-  </div>
-
-    <div class="tab-content container-fluid"  id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="container-fluid tablaMascotas" id="mascotas" >
-          <!------tablaConsultas-->
-          <div class="card" >
-              <div class="card-header" style="background-color:#FC7A1E; color: E7E7E7; "">
-                  <h1>Tabla de mascotas</h1>
-              </div>
-              <div class="card-body table-responsive">
-                  <table class="table table-light" id="hola">
-                      <thead class="thead-light">
-                          <tr>
-                              <th>#</th>
-                              <th>Nombre del dueño</th>
-                              <th>Dirección</th>
-                              <th>Teléfono</th>
-                              <th>Nombre de la mascota</th>
-                              <th>Especie</th>
-                              <th>Sexo</th>
-                              <th>Color</th>
-                              <th>Alergias</th>
-                              <th>Reproductivo</th>
-                              <th>Acciones</th>
-                              <th>Consultas</th>
-                              
-                              
-                          </tr>
-                      </thead>
-                      <tbody id="lista-Mascotas">
-                         
-                      </tbody>
-  
-                  </table>
-              </div>
-          </div>
-      </div>
-      </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">.qweqweqwe..</div>
-      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
     </div>
+
+    
     
     <script src="js/mascotas.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

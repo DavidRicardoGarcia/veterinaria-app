@@ -4,14 +4,20 @@
 
 body{
   font-family: 'Open Sans', sans-serif;
+  background-color: #A9B6CC;
+}
+.barranav{
+  height: 100 px;
+
 }
 
 .letras{
-  color: #F9C784;
+  color: #FFFFFF;
+  font-size: x-large;
 }
 .tablaMascotas{
-    margin-top:10px;
-    font-family: ;
+    margin-top:50px;
+    font-family: 'Open Sans', sans-serif; ;
 }
 #form-modal textarea{
   
