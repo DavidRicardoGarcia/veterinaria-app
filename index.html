@@ -73,24 +73,42 @@
             <div class="modal-body">
               <form id="form-modal">
                   <input type="hidden" id="indice">
-                <div class="form-group">
+                <div class="form-group fdueno">
                   <label for="nombreD" class="col-form-label">Nombre del dueño:</label>
                   <input type="text" class="form-control" id="fnombreD">
+                  <label for="direccion" class="col-form-label">Dirección:</label>
+                  <input type="text" class="form-control" id="direccion">
+                  <label for="tel" class="col-form-label">Teléfono:</label>
+                  <input type="text" class="form-control" id="tel">
                 </div>
                 <div class="form-group">
                     <label for="nombreM" class="col-form-label">Nombre de la mascota:</label>
                     <input type="text" class="form-control" id="fnombreM">
+                    <label for="color" class="col-form-label">Color:</label>
+                    <input type="text" class="form-control" id="color">
+                    <label for="alergias" class="col-form-label">Alergias/Enfermedades crónicas:</label>
+                    <textarea  name="" id="alergias" cols="10" rows="4"></textarea>
                   </div>
                 <div class="form-group">
                     <div class="form-group">
-                        <label for="tipo">Raza</label>
+                        <label for="tipo">Especie</label>
                         <select class="form-control" id="tipoRaza">
                           <option>Gato</option>
                           <option>Perro</option>
+                          <option>Ave</option>
                           <option>Caballo</option>
-                          <option>Iguana</option>
                           <option>Otro</option>
-                        </select>    
+                        </select>
+                        <label for="tipo">Genero</label>
+                        <select class="form-control" id="tipoRaza">
+                          <option>Hembra</option>
+                          <option>Macho</option>
+                        </select> 
+                        <label for="tipo">Reproductivo</label>
+                        <select class="form-control" id="tipoRaza">
+                          <option>Incompleto</option>
+                          <option>Completo</option>
+                        </select>     
                   </div>
                 </div>
               </form>
@@ -110,14 +128,20 @@
             <div class="card-header">
                 <h1>Tabla de mascotas</h1>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table class="table table-light" id="hola">
                     <thead class="thead-light">
                         <tr>
                             <th>#</th>
                             <th>Nombre del dueño</th>
+                            <th>Dirección</th>
+                            <th>Teléfono</th>
                             <th>Nombre de la mascota</th>
-                            <th>Raza</th>
+                            <th>Especie</th>
+                            <th>Sexo</th>
+                            <th>Color</th>
+                            <th>Alergias</th>
+                            <th>Reproductivo</th>
                             <th>Acciones</th>
                             <th>Consultas</th>
                             

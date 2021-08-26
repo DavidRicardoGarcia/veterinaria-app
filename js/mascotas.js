@@ -1,21 +1,41 @@
 const listaMascotas = document.getElementById('lista-Mascotas');
+//variables del modal
 const tipo=document.getElementById('tipoRaza');
 const nombreDueno=document.getElementById('fnombreD');
 const nombreMascota=document.getElementById('fnombreM');
 const formModal=document.getElementById("form-modal");
 const btnGuardar=document.getElementById("guardar");
 const indiceEditar=document.getElementsByName("indice");
+const ftel=document.getElementsByName("tel");
+const fcolor=document.getElementsByName("color");
+const falergias=document.getElementsByName("color");
+const fgenero=document.getElementsByName("genero");
+const fdireccion=document.getElementsByName("direccion");
 
 
 let mascotas = [{
     tipo: "Gato",
     nombreD: "David García",
+    direccion: "Rio lerma 255, Miguel Hidalgo",
+    tel: 3134568746,
+    tipo:"Gato",
+    genero:"Macho",
+    color:"blanco con negro",
+    alergias:"Ninguna",
+    reproductivo:"incompleto",
     nombreM: "Zeus"
 },
 {
-    tipo:"Perro",
-    nombreD:"Maria Sanchez",
-    nombreM:"Fiona"
+    tipo: "Perro",
+    nombreD: "Felipe Cruz",
+    direccion: "Las marias 33, Union",
+    tel: 3124589124,
+    tipo:"Gato",
+    genero:"Hembra",
+    color:"gris",
+    alergias:"Ninguna",
+    reproductivo:"incompleto",
+    nombreM: "Fiona"
 }];
 
 
@@ -23,18 +43,24 @@ function listarMascotas() {
     let htmlMascotas = mascotas.map((mascota, index) => `<tr>
     <td>${index}</td>
     <td>${mascota.nombreD}</td>
+    <td>${mascota.direccion}</td>
+    <td>${mascota.tel}</td>
     <td>${mascota.nombreM}</td>
     <td>${mascota.tipo}</td>
+    <td>${mascota.genero}</td>
+    <td>${mascota.color}</td>
+    <td>${mascota.alergias}</td>
+    <td>${mascota.reproductivo}</td>
     <td>
-        <a name="" id="" class="btn btn-info editar" data-toggle="modal" data-target="#modalCrearMascota" onclick=editar(${index}) href="#" role="button">${mascota.tipo=="Gato" ? `<i class="fa fa-cat" aria-hidden="true"></i>` : `<i class="fa fa-dog" aria-hidden="true"></i>`} Editar</a>
+    <div class="btn-group" role="group" >   <a name="" id="" class="btn btn-info editar" data-toggle="modal" data-target="#modalCrearMascota" onclick=editar(${index}) href="#" role="button">${mascota.tipo=="Gato" ? `<i class="fa fa-cat" aria-hidden="true"></i>` : `<i class="fa fa-dog" aria-hidden="true"></i>`} Editar</a>
         
-        <a name="" id="" class="btn btn-danger eliminar" href="#" role="button" onclick=clicEliminar(${index})><i class="fa fa-trash"  aria-hidden="true"></i> Eliminar</a>
+        <a name="" id="" class="btn btn-danger eliminar" href="#" role="button" onclick=clicEliminar(${index})><i class="fa fa-trash"  aria-hidden="true"></i> Eliminar</a> </div>
    </td>
     <td>
-        <a name="" id="" class="btn btn-info"  href="#" role="button">
+    <div class="btn-group" role="group">  <a name="" id="" class="btn btn-info"  href="#" role="button">
             <i class="far fa-eye"></i>Ver</a>
         
-        <a name="" id="" class="btn btn-primary" href="#" role="button"><i class="fas fa-pen-square"></i> Crear</a>
+        <a name="" id="" class="btn btn-primary" href="#" role="button"><i class="fas fa-pen-square"></i> Crear</a> </div>
    </td>
     </tr>`).join("");
 
