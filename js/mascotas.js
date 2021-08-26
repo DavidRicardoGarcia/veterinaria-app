@@ -11,7 +11,11 @@ const fcolor = document.getElementsByName("color");
 const falergias = document.getElementsByName("color");
 const fgenero = document.getElementsByName("genero");
 const fdireccion = document.getElementsByName("direccion");
-
+function getDate(){
+    let fecha=new Date();
+    fecha=fecha.toLocaleDateString;
+    return fecha
+}
 
 let mascotas = [{
     tipo: "Gato",
@@ -60,7 +64,7 @@ function listarMascotas() {
     <div class="btn-group" role="group">  <a name="" id="" class="btn btn-info"  href="#" role="button">
             <i class="far fa-eye"></i>Ver</a>
         
-        <a name="" id="" class="btn btn-primary" href="#" role="button"><i class="fas fa-pen-square"></i> Crear</a> </div>
+        <a name="" id="" class="btn btn-primary"  data-toggle="modal" data-target="#modalNuevaConsulta" onclick="nuevaConsulta(${index})" href="#" role="button"><i class="fas fa-pen-square"></i> Crear</a> </div>
    </td>
     </tr>`).join("");
 
@@ -126,6 +130,20 @@ function editar(index) {
     reproductivo.value=mascota.reproductivo,
     indice.value = index;
 
+
+}
+
+function nuevaConsulta(index){
+    const mascota = mascotas[index];
+    cnombreM.value=mascota.nombreM,
+     ctel.value=mascota.tel ,
+    cnombreD.value=mascota.nombreD,
+    calergia.value=mascota.alergias
+
+}
+
+function cambioTipo(texto){
+console.log(texto.value);
 
 }
 listarMascotas();
