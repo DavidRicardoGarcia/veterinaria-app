@@ -37,7 +37,7 @@ rel="stylesheet"
         <header>
           
             <nav class="navbar navbar-expand-sm " style="background-color: #110066; height:100px;">
-              <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+              <a class="navbar-brand" rel="home" href="#" title="Vetzoo">
                 <img style="max-width:70px; margin-top:auto;"
                      src="g4579.png"></a>
                 <a class="navbar-brand letras"  href="#" style="font-size: xx-large;" >VetZoo</a>
@@ -64,71 +64,92 @@ rel="stylesheet"
     <ul class="nav nav-tabs" id="myTab" role="tablist">
 
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Mascotas</button>
+        <button class="nav-link active" id="search-tab" data-bs-toggle="tab" data-bs-target="#search" type="button" role="tab" aria-controls="search" aria-selected="true">Dueños/Mascotas</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Dueños</button>
+        <button class="nav-link" id="proveedor-tab" data-bs-toggle="tab" data-bs-target="#proveedor" type="button" role="tab" aria-controls="proveedor" aria-selected="false">Proveedores</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Cirugias</button>
+        <button class="nav-link" id="inventario-tab" data-bs-toggle="tab" data-bs-target="#inventario" type="button" role="tab" aria-controls="inventario" aria-selected="false">Inventario</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="agenda-tab" data-bs-toggle="tab" data-bs-target="#agenda" type="button" role="tab" aria-controls="agenda" aria-selected="false">Agenda</button>
       </li>
     </ul>
   </div>
 <!----tabs-->
     <div class="tab-content container-fluid"  id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <br>
-        <div class="input-group">
-          <div class="form-outline">
-            <input type="search" id="form1" class="form-control" />
-            <label class="form-label" for="form1">Buscar persona</label>
+      <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
+        <div class="container-fluid tablaProveedor" id="searchT" >
+          <br>
+          <div class="input-group">
+            <div class="form-outline">
+              <input type="search" id="form1" class="form-control" />
+              <label class="form-label" for="form1">Buscar persona</label>
+            </div>
+            <button type="button" class="btn btn-primary ">
+              <i class="fas fa-search" ></i>
+            </button>
           </div>
-          <button type="button" class="btn btn-primary">
-            <i class="fas fa-search"></i>
-          </button>
+          <button type="button" class="btn btn-primary add" data-toggle="modal" data-target="#modalCrearMascota">Agregar mascota</button>
+          <button type="button" class="btn btn-primary add">Agregar Dueño</button>
+          
         </div>
+
       </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="container-fluid tablaMascotas" id="mascotas" >
+
+      <div class="tab-pane fade" id="proveedor" role="tabpanel" aria-labelledby="proveedor-tab">
+        <div class="container-fluid tablaProveedor" id="proveedorT" >
           <!------tablaConsultas-->
           <div class="card" >
-              <div class="card-header" style="background-color:#90CBFB"; color: "#FFEC67"; "">
-                  <h3>Tabla de mascotas</h3>
-              </div>
+
               <div class="card-body table-responsive">
-                  <table class="table table-light" id="hola">
+                  <div class="card-header" style="background-color:#90CBFB"; color: "#FFEC67"; "">
+                    <h3>Tabla de Proveedores</h3>
+                  </div>
+                  <table class="table table-light" id="proveedorH">
                       <thead class="thead-light">
-                          <tr>
-                              <th>#</th>
-                              <th>Nombre del dueño</th>
-                              <th>Dirección</th>
-                              <th>Teléfono</th>
-                              <th>Nombre de la mascota</th>
-                              <th>Especie</th>
-                              <th>Sexo</th>
-                              <th>Color</th>
-                              <th>Alergias</th>
-                              <th>Reproductivo</th>
-                              <th>Acciones</th>
-                              <th>Consultas</th>
-                              
-                              
-                          </tr>
-                      </thead>
-                      <tbody id="lista-Mascotas">
-                         
-                      </tbody>
-  
+                        <tr>
+                          <th>ID</th>
+                          <th>Proveedor</th>
+                          <th>Teléfono</th>
+                          <th>Domicilio</th>
+                          <th>Productos</th>
+
                   </table>
               </div>
           </div>
+        </div>
       </div>
-      </div>
-      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+      <div class="tab-pane fade" id="inventario" role="tabpanel" aria-labelledby="inventario-tab">
+        <div class="container-fluid tablaInventario" id="inventarioT" >
+          <!------tablaConsultas-->
+          <div class="card" >
 
-          <!--botones de accion-->
-  <div class="container-fluid botones">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCrearMascota" data-whatever="@mdo">Crear nueva mascota</button></div>
+              <div class="card-body table-responsive">
+                  <div class="card-header" style="background-color:#90CBFB"; color: "#FFEC67"; "">
+                    <h3>Inventario</h3>
+                  </div>
+                  <table class="table table-light" id="inventarioH">
+                      <thead class="thead-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Producto</th>
+                          <th>Precio de venta</th>
+                          <th>Cantidad</th>
+                          <th>Proveedor</th>
+
+                        </tr>
+                        
+                  </table>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="agenda" role="tabpanel" aria-labelledby="agenda-tab">
+        <div id="dp"></div> 
+      </div>
+
     <!------modal-crearMascota-->
     <div class="modal fade" id="modalCrearMascota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -191,6 +212,13 @@ rel="stylesheet"
       </div>
     </div>
 
+
+
+
+
+
+
+
   <!----modal-nuevaConsulta-->  
   <div class="modal" tabindex="-1"  role="dialog" id="modalNuevaConsulta">
     <div class="modal-dialog" role="document">
@@ -247,6 +275,12 @@ rel="stylesheet"
 
 
 <!-- MDB -->
+<script src="js/daypilot/daypilot-all.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  const dp = new DayPilot.Calendar("dp");
+  dp.viewType = "Week";
+  dp.init();
+</script>
 <script
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
