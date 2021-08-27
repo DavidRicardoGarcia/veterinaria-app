@@ -19,7 +19,7 @@ body{
     margin-top:50px;
     font-family: 'Open Sans', sans-serif; ;
 }
-#form-modal textarea{
+.form-modal textarea{
   
     width: 100%;
   }

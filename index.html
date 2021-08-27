@@ -108,14 +108,14 @@
     <div class="modal fade" id="modalCrearMascota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalCrearConsulta">Nueva mascota</h5>
+            <div class="modal-header"style="background-color:#90CBFB"; "">
+              <h5 class="modal-title" style="color: black; font-weight: bold;" id="modalCrearConsulta">Nueva mascota</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <form id="form-modal">
+              <form class="form-modal" id="form-modal">
                   <input type="hidden" id="indice">
                 <div class="form-group fdueno">
                   <label for="nombreD" class="col-form-label">Nombre del dueño:</label>
@@ -166,8 +166,62 @@
       </div>
     </div>
 
+  <!----modal-nuevaConsulta-->  
+  <div class="modal" tabindex="-1"  role="dialog" id="modalNuevaConsulta">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #90CBFB;">
+          <h5 class="modal-title" >Nueva Consulta</h5>
+          <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body form-modal">
+          <div class="form-group fconsult">
+            <label for="nombreD" class="col-form-label">Nombre del dueño:</label>
+            <input type="text" class="form-control" id="cnombreD" readonly>
+            <label for="tel" class="col-form-label">Teléfono:</label>
+            <input type="text" class="form-control" id="ctel"readonly>
+            <label for="direccion" class="col-form-label">Nombre de la mascota:</label>
+            <input type="text" class="form-control" id="cnombreM" readonly>
+            <label for="calergia" class="col-form-label">Alergias:</label>
+            <input type="text" class="form-control" id="calergia" readonly>
+            <label for="peso" class="col-form-label">Peso:</label>
+            <input type="text" class="form-control" id="peso" >
+            <label for="observaciones" class="col-form-label">Observaciones:</label>
+            <br>
+            <textarea  name="" id="observaciones"  cols="10" rows="4"></textarea>
+            
+
+          </div>
+
+          <select class="form-select" onchange="cambioTipo(this)" id="selectConsulta">
+            <option selected>Selecciona el tipo de consulta</option>
+            <option value="1">Consulta general</option>
+            <option value="2">Cirugía</option>
+            <option value="3">Estética</option>
+            <option value="4">Laboratorio</option>
+          </select>
+          <div id="cambio">
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Crear</button>
+        </div>
+      </div>
+    </div>
+  </div>
     
-    
+
+
+
+
+
+
+
+
     <script src="js/mascotas.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
