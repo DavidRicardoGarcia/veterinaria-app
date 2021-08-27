@@ -12,6 +12,7 @@ const fcolor = document.getElementsByName("color");
 const falergias = document.getElementsByName("color");
 const fgenero = document.getElementsByName("genero");
 const fdireccion = document.getElementsByName("direccion");
+const buscar= document.getElementById("form1");
 function getDate(){
     let fecha=new Date();
     fecha=fecha.toLocaleDateString;
@@ -23,7 +24,6 @@ let mascotas = [{
     nombreD: "David García",
     direccion: "Rio lerma 255, Miguel Hidalgo",
     tel: 3134568746,
-    tipo: "Gato",
     genero: "Macho",
     color: "blanco con negro",
     alergias: "Ninguna",
@@ -35,13 +35,35 @@ let mascotas = [{
     nombreD: "Felipe Cruz",
     direccion: "Las marias 33, Union",
     tel: 3124589124,
-    tipo: "Gato",
     genero: "Hembra",
     color: "gris",
     alergias: "Ninguna",
     reproductivo: "Incompleto",
     nombreM: "Fiona"
-}];
+},
+{
+    tipo: "Gato",
+    nombreD: "Fernanda Gómez",
+    direccion: "Capistrano 12, Chamizal",
+    tel: 3148599124,
+    genero: "Hembra",
+    color: "blanca",
+    alergias: "Ninguna",
+    reproductivo: "Completo",
+    nombreM: "Fiona"
+},
+{
+    tipo: "Gato",
+    nombreD: "Fernanda Gómez",
+    direccion: "Capistrano 12, Chamizal",
+    tel: 3148599124,
+    genero: "Hembra",
+    color: "blanca",
+    alergias: "Ninguna",
+    reproductivo: "Completo",
+    nombreM: "Fiona"
+}
+];
 
 
 function listarMascotas() {
@@ -185,3 +207,10 @@ bodyConsultas.innerHTML=htmlConsulta;
 listarMascotas();
 formModal.onsubmit = enviarModalForm;
 btnGuardar.onclick = enviarModalForm;
+$( function() {
+   var nombres=mascotas.map(value=>value.nombreD);
+   console.log(nombres)
+    $( "#form1" ).autocomplete({
+      source: nombres
+    });
+  } );
