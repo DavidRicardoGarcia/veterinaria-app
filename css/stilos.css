@@ -13,7 +13,15 @@ body{
 .add{
 
   margin-top: 10px;
+  height: 50px;
+  width: 250px;
 
+}
+.searchb{
+  padding: auto;
+  text-align: center;
+  height: 35px;
+  width: 100px;
 }
 
 .letras{
