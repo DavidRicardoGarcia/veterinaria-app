@@ -70,77 +70,92 @@ var mascotas = [
     alergias: "Ninguna"
   },
 ];
-let mascotasDuen = mascotas.map(mascota => duenos[mascota.did - 1]["mascotas"].push(mascota));
+
+let mascotasD= duenos.map(function f(dueno, index){
+    mascotas.map(function m(mascota,ind){
+if(mascota.did==dueno.id){
+  duenos[index]["mascotas"].push(mascota)
+}
+    });
+
+  
+});
+
 
 
 function cuadro(evento) {
-
+duenos.map(function owner(dueno,index){
+if(dueno.id==evento){
   let contenidoHTML = `<div class="card w-100" >
-    <div class="card-header">
-    <h5>${duenos[evento - 1].nombre}</h5>
-    </div>
-    <div class="card-body">
-    <h6 class="card-title">Datos:</h6>
-    <input type="hidden" id="hID" name="hID" value="${duenos[evento - 1].id}">
-    <p class="card-text">Dirección: ${duenos[evento - 1].direccion}</p>
-    <p class="card-text">Teléfono: ${duenos[evento - 1].tel}</p>
-    <button type="button" class="btn btn-primary" onclick="modalEditar(${duenos[evento - 1].id})"data-toggle="modal" data-target="#modal1">
-    Editar
-    </button>
-    <div class="card-body">
-    <table class="table table-responsive-sm">
-     <thead class="">
-      <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Especie</th>
-      <th scope="col">Sexo</th>
-      <th scope="col">Color</th>
-      <th scope="col">Alergias</th>
-      <th scope="col">Acciones</th>
-      <th scope="col">Consultas</th>
-      </tr>
-      </thead>
-     <tbody>
-    ${duenos[evento - 1].mascotas.map(mascota => `<tr>
-      <th scope="row">${mascota.id}</th>
-      <td>${mascota.nombre}</td>
-      <td>${mascota.especie}</td>
-      <td>${mascota.sexo}</td>
-      <td>${mascota.color}</td>
-      <td>${mascota.alergias}</td>
-      <td><div class="btn-group" role="group" >
-      <button type="button" onclick="editarMascota(${mascota.id})" class="btn btn-info" data-toggle="modal" data-target="#modal1">Editar</button>
-      <button type="button" class="btn btn-danger" onclick="clicEliminar(${mascota.id})">Eliminar</button>
-      
-    </div></td>
+  <div class="card-header">
+  <h5>${dueno.nombre}</h5>
+  </div>
+  <div class="card-body">
+  <h6 class="card-title">Datos:</h6>
+  <input type="hidden" id="hID" name="hID" value="${dueno.id}">
+  <p class="card-text">Dirección: ${dueno.direccion}</p>
+  <p class="card-text">Teléfono: ${dueno.tel}</p>
+  <button type="button" class="btn btn-primary" onclick="modalEditar(${dueno.id})"data-toggle="modal" data-target="#modal1">
+  Editar
+  </button>
+  <div class="card-body">
+  <table class="table table-responsive-sm">
+   <thead class="">
+    <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Especie</th>
+    <th scope="col">Sexo</th>
+    <th scope="col">Color</th>
+    <th scope="col">Alergias</th>
+    <th scope="col">Acciones</th>
+    <th scope="col">Consultas</th>
+    </tr>
+    </thead>
+   <tbody>
+  ${dueno.mascotas.map(mascota => `<tr>
+    <th scope="row">${mascota.id}</th>
+    <td>${mascota.nombre}</td>
+    <td>${mascota.especie}</td>
+    <td>${mascota.sexo}</td>
+    <td>${mascota.color}</td>
+    <td>${mascota.alergias}</td>
     <td><div class="btn-group" role="group" >
-      <button type="button" class="btn btn-info">Ver</button>
-      <button type="button" class="btn btn-primary">Nueva</button>
-      
-    </div></td>
-    </tr>`).join("")}
- 
-        </tbody>
-    </table>
+    <button type="button" onclick="editarMascota(${mascota.id})" class="btn btn-info" data-toggle="modal" data-target="#modal1">Editar</button>
+    <button type="button" class="btn btn-danger" onclick="clicEliminar(${mascota.id})">Eliminar</button>
+    
+  </div></td>
+  <td><div class="btn-group" role="group" >
+    <button type="button" class="btn btn-info">Ver</button>
+    <button type="button" class="btn btn-primary">Nueva</button>
+    
+  </div></td>
+  </tr>`).join("")}
+
+      </tbody>
+  </table>
 
 <div class="card-footer"><button type="button" class="btn btn-primary" onclick="modalNuevaMascota()" data-toggle="modal" data-target="#modal1">
 Nueva mascota
 </button></div>
-  </div>
-  </div>
-         
-          
-         
-          
+</div>
+</div>
+       
+        
+       
+        
 
-    </div>`;
-
-
+  </div>`;
 
 
 
-  contenido.innerHTML = contenidoHTML;
+
+
+contenido.innerHTML = contenidoHTML;
+}
+});
+
+  
 }
 function buscador(index = 0) {
 
@@ -191,32 +206,36 @@ function buscador(index = 0) {
 /* seccion editar dueño */
 function modalEditar(index) {
   let contenidoHTML = document.getElementById("modal1");
-  let persona = duenos[index - 1];
-  let contenido = `
-<div class="modal-dialog" role="document">
-<div class="modal-content" >
-  <div class="modal-header" >
-<h5 class="modal-title" id="">${persona.nombre}</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-  <span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<div class="form-group">
-  <label for="dir">Dirección</label>
-  <input type="text" name="" id="dir" class="form-control" value="${persona.direccion}" >
-  <label for="telefon">Teléfono</label>
-  <input type="tel" name="" id="telefon" class="form-control" value="${persona.tel}" >
-</div>
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-<button type="button" data-dismiss="modal" onclick="guardarEditar(${persona.id - 1})" class="btn btn-primary">Guardar cambios</button>
-</div>
-</div>
-</div>
-</div>`
-  contenidoHTML.innerHTML = contenido;
+  duenos.map(function ed(persona,idx){
+    if (persona.id==index){
+      let contenido = `
+      <div class="modal-dialog" role="document">
+      <div class="modal-content" >
+        <div class="modal-header" >
+      <h5 class="modal-title" id="">${persona.nombre}</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+      <div class="form-group">
+        <label for="dir">Dirección</label>
+        <input type="text" name="" id="dir" class="form-control" value="${persona.direccion}" >
+        <label for="telefon">Teléfono</label>
+        <input type="tel" name="" id="telefon" class="form-control" value="${persona.tel}" >
+      </div>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      <button type="button" data-dismiss="modal" onclick="guardarEditar(${persona.id - 1})" class="btn btn-primary">Guardar cambios</button>
+      </div>
+      </div>
+      </div>
+      </div>`
+        contenidoHTML.innerHTML = contenido;
+    }
+  });
+  
 }
 function guardarEditar(id) {
 
@@ -231,7 +250,6 @@ function guardarEditar(id) {
 /*seccion agregar mascota*/
 function modalNuevaMascota(index) {
   let contenidoHTML = document.getElementById("modal1");
-  let persona = duenos[1 - 1];
   let contenido = `
 <div class="modal-dialog" role="document">
 <div class="modal-content" >
@@ -277,7 +295,7 @@ function guardarMascota() {
   let especie = document.getElementById("petRaze").value;
   let ids = mascotas.map(item=>parseFloat(item.id));
   ids=Math.max(...ids);
- console.log(ids)
+ 
   let pet = {
     id: ids + 1,
     did: vID,
@@ -289,28 +307,39 @@ function guardarMascota() {
   }
   mascotas.push(pet);
 
-  duenos[vID - 1]["mascotas"].push(pet);
+  guardar(pet);
   cuadro(vID);
-  console.log(mascotas);
+  
 }
 
 
 /* Eliminar mascota */
 
 function clicEliminar(index) {
-  let mascota=mascotas.filter(item=>item.id==index);
+
 
   var result = confirm("¿Seguro que deseas eliminar a la mascota?");
   if (result) {
 
-    let valor = mascota[0].did;
-    let a = mascotas.splice(0, mascota[0].id-1);
-    let b = mascotas.splice(1,)
+    mascotas.map(function eli(mascota,ind){
+      
+      if(mascota.id==index){
+        let a = mascotas.splice(0, ind);
+        let b = mascotas.splice(1,)
+        mascotas = a.concat(b);
+        
+        eliminar(mascota);
+        cuadro(mascota.did);
+      }
+    })
+    
    //nueva tabla mascotas
-    mascotas = a.concat(b);
-    duenos[valor - 1].mascotas = duenos[valor - 1].mascotas.filter(item => item.id != index);
-     cuadro(valor);
-     console.log(mascota,mascotas,duenos[valor - 1].mascotas)
+   
+    
+   
+    
+     
+     
   }
 
 }
@@ -318,9 +347,9 @@ function clicEliminar(index) {
 /* Editar mascota*/
 function editarMascota(index) {
   let contenidoHTML = document.getElementById("modal1");
-  let pet = mascotas.filter(item=>item.id==index);
- 
-  let contenido = `
+  mascotas.map(function mas(mascota, ind){
+    if(mascota.id==index){
+      let contenido = `
   <div class="modal-dialog" role="document">
   <div class="modal-content" >
     <div class="modal-header" >
@@ -331,20 +360,23 @@ function editarMascota(index) {
   </div>
   <div class="modal-body">
   <div class="form-group">
+    <input type="hidden" id="pID" name="pID" value="${mascota.id}">
+    <input type="hidden" id="pDID" name="pDID" value="${mascota.did}">
     <label for="petName">Nombre</label>
-    <input type="text" name="" id="petName" value="${pet[0].nombre}" class="form-control"  required>
+    
+    <input type="text" name="" id="petName" value="${mascota.nombre}" class="form-control"  required>
     <label for="petRaze">Especie</label>
-    <input type="tel" name="" id="petRaze" value="${pet[0].especie}" class="form-control" required >
+    <input type="tel" name="" id="petRaze" value="${mascota.especie}" class="form-control" required >
     <label for="petSex">Sexo</label>
-    <select id="petSex" value="${pet[0].nombre}" class="form-select">
- 
+    <select id="petSex"  class="form-select">
+    <option selected>${mascota.sexo}</option>
     <option value="hembra">Hembra</option>
     <option value="macho">Macho</option>
   </select>
     <label for="petColor">Color</label>
-    <input type="text" value="${pet[0].color}"name="" id="petColor" class="form-control" required >
+    <input type="text" value="${mascota.color}"name="" id="petColor" class="form-control" required >
     <label for="petAlergy">Alergias</label>
-    <input type="text" value="${pet[0].alergias}"name="" id="petAlergy" class="form-control" required >
+    <input type="text" value="${mascota.alergias}"name="" id="petAlergy" class="form-control" required >
   </div>
   </div>
   <div class="modal-footer">
@@ -355,6 +387,78 @@ function editarMascota(index) {
   </div>
   </div>`
   contenidoHTML.innerHTML = contenido;
+    }
+  })
+ 
+  
+}
+function guardarEdicion(){
+ 
+  let ID=document.getElementById("pID").value;
+ let amors=document.getElementById("pDID").value;
+  let nombre= document.getElementById("petName").value;
+  let especie=document.getElementById("petRaze").value;
+  let sexo=document.getElementById("petSex").value;
+  let color=document.getElementById("petColor").value;
+  let alergy=document.getElementById("petAlergy").value;
+   let a=duenos.map((item, index)=> item.id==ID ? index : false);
+  let b=a.filter(item=> item!=false)
+  pet={
+    id:ID,
+    nombre:nombre,
+    especie:especie,
+    sexo:sexo,
+    color:color,
+    alergias:alergy,
+    did:amors
+  };
+  mascotas[b]=pet;
+ actualizar(b,pet)
 }
 
+function actualizar(pos,pet){
+  let mD= duenos.map(function f(dueno, index){
+  
+if(pet.did==dueno.id){
+  duenos[index]["mascotas"].map(function g(item, ind){
+    if(pet.id==item.id){duenos[index]["mascotas"][ind]=pet;}
+  });
+  cuadro(dueno.id);
+}
+    
+
+  
+});
+}
+
+function guardar(pet){
+  let mD= duenos.map(function f(dueno, index){
+  
+if(pet.did==dueno.id){
+  duenos[index]["mascotas"].push(pet)
+}
+    
+
+  
+});
+}
+
+function eliminar(pet){
+  
+  let mD= duenos.map(function f(dueno, index){
+  
+if(pet.did==dueno.id){
+  duenos[index]["mascotas"].map(function g(item, ind){
+    if(pet.id==item.id){
+      let c=duenos[index]["mascotas"].splice(0,ind);
+      let d=duenos[index]["mascotas"].splice(1,);
+      duenos[index]["mascotas"]=c.concat(d);
+  }
+  });
+}
+    
+
+  
+});
+}
 btnBuscar.onclick = buscador;
