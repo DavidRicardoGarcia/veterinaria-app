@@ -1,6 +1,9 @@
 const btnBuscar = document.getElementById("btnBuscar");
 
 
+
+
+
 var duenos = [
   {
     id: 1,
@@ -32,6 +35,24 @@ var duenos = [
   },
 
 ];
+
+
+const autoCompleteJS = new autoComplete({  placeHolder: "Buscar persona",
+data: {
+    src: duenos.map(index=>index.nombre),
+    cache: true,
+},
+resultItem: {
+    highlight: true
+},
+events: {
+    input: {
+        selection: (event) => {
+            const selection = event.detail.selection.value;
+            autoCompleteJS.input.value = selection;
+        }
+    }
+} });
 var mascotas = [
   {
     id: 1,
@@ -81,7 +102,25 @@ if(mascota.did==dueno.id){
   
 });
 
+var consultas={
+  id:1,
+  idc:1,
+  cpeso:5,
+  alergias:"ninguna",
+  observaciones:"Todo bien",
+  diagnostico:"",
+  tipo: "general",
+  estudio:"",
+  resultado:"",
+  fecha:"",
+  a:"",
+  b:"",
+  c:"",
+  d:"",
+  e:"",
+  f:"",
 
+}
 
 function cuadro(evento) {
 duenos.map(function owner(dueno,index){
@@ -127,7 +166,7 @@ if(dueno.id==evento){
   </div></td>
   <td><div class="btn-group" role="group" >
     <button type="button" class="btn btn-info">Ver</button>
-    <button type="button" class="btn btn-primary">Nueva</button>
+    <button type="button" class="btn btn-primary" onclick="nuevaConsulta(${mascota.id})" data-toggle="modal" data-target="#modal1">Nueva</button>
     
   </div></td>
   </tr>`).join("")}
@@ -159,10 +198,10 @@ contenido.innerHTML = contenidoHTML;
 }
 function buscador(index = 0) {
 
-  let nombre = document.getElementById("textoBuscar").value;
+  let nombre = document.getElementById("autoComplete").value;
   let contenido = document.getElementById("contenido");
   if (index > 0) {
-    document.getElementById("textoBuscar").value = "";
+    document.getElementById("autoComplete").value = "";
     return contenido.innerHTML = "";
   }
   let nombres = duenos.filter(item => item.nombre.includes(nombre.toUpperCase()))
@@ -460,5 +499,147 @@ if(pet.did==dueno.id){
 
   
 });
+}
+
+
+
+function nuevaConsulta(index){
+  
+  let contenidoHTML = document.getElementById("modal1");
+  let fecha=new Date();
+
+  mascotas.map(function cons(mascota, indice){
+    if (mascota.id===index){
+       let contenido = `
+      <div class="modal-dialog" role="document">
+      <div class="modal-content" >
+        <div class="modal-header" >
+      <h5 class="modal-title" id="">Nueva consulta</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+      <div class="form-group">
+      <label for="fecha" class="col-form-label">Fecha:</label>
+      <input type="text" class="form-control" value="${fecha.toLocaleDateString()}"id="fecha" readonly>
+      <label for="calergia" class="col-form-label">Especie:</label>
+      <input type="text" class="form-control" value="${mascota.especie}"id="cespecie" readonly>
+      <label for="calergia" class="col-form-label">Sexo:</label>
+      <input type="text" class="form-control" value="${mascota.sexo}"id="csexo" readonly>
+      <label for="calergia" class="col-form-label">Alergias:</label>
+      <input type="text" class="form-control" value="${mascota.alergias}"id="calergia" readonly>
+     
+      <label for="observaciones">Observaciones:</label>
+      <textarea class="form-control" id="observaciones" rows="3"></textarea>
+      <label for="peso" class="col-form-label">Peso:</label>
+      <input type="text" class="form-control" id="peso" >
+      </div>
+      <label for="selecConsulta" class="col-form-label">Tipo de consulta:</label>
+      <select class="form-select" onchange="cambioTipo(this)" id="selectConsulta">
+      <option selected>Selecciona el tipo de consulta</option>
+      <option value="1">Consulta general</option>
+      <option value="2">Cirugía</option>
+      <option value="3">Estética</option>
+      <option value="4">Laboratorio</option>
+    </select>
+    <div id="cambio">
+
+    </div>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      <button type="button" data-dismiss="modal" onclick="guardarConsulta(${mascota.id})" class="btn btn-primary">Guardar cambios</button>
+      </div>
+      </div>
+      </div>
+      </div>`;
+        contenidoHTML.innerHTML = contenido;
+
+    }
+
+  });
+      
+}
+
+function cambioTipo(objeto){
+let kg=document.getElementById("peso").value;
+let agregar=document.getElementById("cambio");
+let valor=parseFloat(objeto.value);
+switch (valor) {
+  case 1:
+    agregar.innerHTML="";
+    let agregarHTML1=`<div class="form-group">
+    <label for="diag">Diagnóstico:</label>
+    <textarea class="form-control" id="diag" rows="3"></textarea>
+  </div>`;
+  agregar.innerHTML=agregarHTML1;   
+    break;
+  case 2:
+    
+    console.log("hola");
+    agregar.innerHTML="";
+    let agregarHTML=` <div class="form-group">
+    <label for="xilazina">Xilazina 10% >10Kg
+    </label>
+    <input type="number" class="form-control" id="xilazina" value="${(kg*1.3)/100}">
+    <label for="xilazina2">Xilazina % 20 <10Kg</label>
+    <input type="number" class="form-control" id="xilazina2" value="${(kg*1.3)/20}">
+    <label for="Tramadol">Tramadol</label>
+    <input type="number" class="form-control" id="Tramadol" value="${(kg*3)/50}">
+    <label for="Zelazol">Zelazol
+    </label>
+    <input type="number" class="form-control" id="Zelazol" value="${(kg*0.05)}">
+    <label for="Zoletil">Zoletil</label>
+    <input type="number" class="form-control" id="Zoletil" value="${(kg*0.125)}">
+    <label for="Pento">Pento</label>
+    <input type="number" class="form-control" id="Pento" value="${(kg*28/65)}">
+    <label for="Vk">Vitamina K</label>
+    <input type="number" class="form-control" id="Vk" value="${(kg*2/10)}">
+    <small  class="form-text text-muted">Medidas sugeridas con base en el peso y formulas conocidas.</small>
+  </div>`;
+  agregar.innerHTML=agregarHTML;    
+    break;
+  case 3:
+    agregar.innerHTML="";
+    break;
+  case 4:
+    agregar.innerHTML="";
+    let agregarHTML2=`<div class="form-group">
+    <label for="estudio">Estudio:</label>
+    <input type="number" class="form-control" id="estudio">
+    <label for="resultado">Resultado:</label>
+    <input type="text" class="form-control" id="resultado">
+  </div>`;
+  agregar.innerHTML=agregarHTML2;   
+    break;
+  default:
+  //nothing to do here
+    break;
+}
+}
+
+function guardarConsulta(mid){
+
+  let id=mid;
+  let nombre = document.getElementById("petName").value;
+  let color = document.getElementById("petColor").value;
+  let alergias = document.getElementById("petAlergy").value;
+  let sexo = document.getElementById("petSex").value;
+  let especie = document.getElementById("petRaze").value;
+  let ids = mascotas.map(item=>parseFloat(item.id));
+  ids=Math.max(...ids);
+ 
+  let pet = {
+    id: ids + 1,
+    did: vID,
+    nombre: nombre,
+    especie: especie,
+    sexo: sexo,
+    color: color,
+    alergias: alergias
+  }
+  mascotas.push(pet);
+
 }
 btnBuscar.onclick = buscador;
