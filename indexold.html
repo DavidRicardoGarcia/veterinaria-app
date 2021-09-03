@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.min.css">
     <link rel="stylesheet" href="css/stilos.css">
         <title>VeterinariaZOO</title>
 </head>
@@ -13,7 +12,7 @@
   <div class="container-fluid barranav">
     <header>
       
-        <nav class="navbar navbar-expand-sm " style="background-color: #10005e; height:100px;">
+        <nav class="navbar navbar-expand-sm " style="background-color: #110066; height:100px;">
           <a class="navbar-brand" rel="home" href="#" title="Vetzoo">
             <img style="max-width:70px; margin-top:auto;"
                  src="static/g4579.png">
@@ -23,10 +22,10 @@
         </nav>
     </header>
   </div>
-   
           
    <!--botones de tabs-->
-   <nav>
+    
+    <nav>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
 
         <li class="nav-item" role="presentation">
@@ -46,86 +45,83 @@
 <!--tabhome-->
 
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <div class="container-fluid">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="container-fluid">
 
-        <!--botonbuscar-->
-        <div >       <br>      
-          <div class="autoComplete_wrapper">   <input type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" id="autoComplete"> 
-            <a name="" id="btnBuscar" class="btn btn-primary consulta" href="#" role="button">Buscar</a>
-            <a name="" onclick="buscador(1)" class="btn btn-primary consulta" href="#" role="button">Limpiar</a>
+                <!--botonbuscar-->
+                <div >       
+                  <br><input type="text" id="textoBuscar"> <a name="" id="btnBuscar" class="btn btn-primary consulta" href="#" role="button">Buscar</a>
+                  <a name="" onclick="buscador(1)" class="btn btn-primary consulta" href="#" role="button">Limpiar</a>
+                </div>
+
+                <!--formbusqueda-->
+                
+                    <div class="row" id="contenido">
+                
+              
+
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg add" data-toggle="modal" data-target="#modalNuevoDueno">Nuevo Usuario</button>
+                    <button type="button" class="btn btn-primary btn-lg add" data-toggle="modal" data-target="#modalCrearMascota">Nueva Mascota</button>
+            </div> 
         </div>
+
+        <div class="tab-pane fade" id="proveedor" role="tabpanel" aria-labelledby="proveedor-tab">
+          <!------tablaConsultas-->
+          <div class="card" >
+
+            <div class="card-body table-responsive">
+                <div class="card-header" style="background-color:#90CBFB"; color: "#FFEC67"; "">
+                  <h3>Tabla de Proveedores</h3>
+                </div>
+                <table class="table table-light" id="proveedorH">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>ID</th>
+                        <th>Proveedor</th>
+                        <th>Teléfono</th>
+                        <th>Domicilio</th>
+                        <th>Productos</th>
+
+                </table>
+            </div>
           </div>
-
-        <!--formbusqueda-->
-        
-            <div class="row" id="contenido">
-        
-      
-
-            </div>
-            <button type="button" class="btn btn-primary btn-lg add" data-toggle="modal" data-target="#modalNuevoDueno">Nuevo Usuario</button>
-            <button type="button" class="btn btn-primary btn-lg add" data-toggle="modal" data-target="#modalCrearMascota">Nueva Mascota</button>
-                 
-      </div> 
-    </div>
-
-    <div class="tab-pane fade" id="proveedor" role="tabpanel" aria-labelledby="proveedor-tab">
-      <!------tablaConsultas-->
-      <div class="card" >
-
-        <div class="card-body table-responsive">
-            <div class="card-header" style="background-color:#90CBFB"; color: "#FFEC67"; "">
-              <h3>Tabla de Proveedores</h3>
-            </div>
-            <table class="table table-light" id="proveedorH">
-                <thead class="thead-light">
-                  <tr>
-                    <th>ID</th>
-                    <th>Proveedor</th>
-                    <th>Teléfono</th>
-                    <th>Domicilio</th>
-                    <th>Productos</th>
-
-            </table>
         </div>
-      </div>
-    </div>
 
-    <div class="tab-pane fade" id="inventario" role="tabpanel" aria-labelledby="inventario-tab">
-      <!------tablaConsultas-->
-      <div class="card" >
+        <div class="tab-pane fade" id="inventario" role="tabpanel" aria-labelledby="inventario-tab">
+          <!------tablaConsultas-->
+          <div class="card" >
 
-        <div class="card-body table-responsive">
-            <div class="card-header" style="background-color:#90CBFB"; color: "#FFEC67"; "">
-              <h3>Inventario</h3>
+            <div class="card-body table-responsive">
+                <div class="card-header" style="background-color:#90CBFB"; color: "#FFEC67"; "">
+                  <h3>Inventario</h3>
+                </div>
+                <table class="table table-light" id="inventarioH">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Precio de venta</th>
+                        <th>Cantidad</th>
+                        <th>Proveedor</th>
+
+                      </tr>
+                      
+                </table>
             </div>
-            <table class="table table-light" id="inventarioH">
-                <thead class="thead-light">
-                  <tr>
-                    <th>ID</th>
-                    <th>Producto</th>
-                    <th>Precio de venta</th>
-                    <th>Cantidad</th>
-                    <th>Proveedor</th>
-
-                  </tr>
-                  
-            </table>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="tab-pane fade" id="agenda" role="tabpanel" aria-labelledby="agenda-tab">
-      <div id="dp">
-      </div> 
-      <button type="button" class="btn btn-primary btn-lg consulta" data-toggle="modal" data-target="#modalNuevaConsulta">Nueva Consulta</button>
+        <div class="tab-pane fade" id="agenda" role="tabpanel" aria-labelledby="agenda-tab">
+          <div id="dp">
+          </div> 
+          <button type="button" class="btn btn-primary btn-lg consulta" data-toggle="modal" data-target="#modalNuevaConsulta">Nueva Consulta</button>
 
-    </div>
+        </div>
+     
+
   </div>
 
-
-<!-- Button trigger modal -->
 
   <!----modal-nuevoDueño-->  
   <div class="modal fade" tabindex="-1"  role="dialog" id="modalNuevoDueno" aria-labelledby="exampleNuevoDueno" aria-hidden="true">
@@ -272,14 +268,16 @@
         </div>
       </div>
     </div>
+  </div>
+
+
+<!-- Button trigger modal -->
+
 
 <!-- Modal -->
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog"  aria-hidden="true">
  
 </div>
-
-<!-- autocompleteJS-->
-  <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>
 
 
 <script src="js/jquery-3.6.0.slim.min.js"></script>
@@ -316,7 +314,7 @@
   dp.init();
   dp.events.list = eventos;
   dp.update();
-</script>  
+</script> 
 
 
 </body>

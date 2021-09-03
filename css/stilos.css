@@ -1,0 +1,52 @@
+/* variables de color */
+
+.botones{ padding-top:10px; padding-bottom:10px;}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  background-color: rgb(255, 255, 255);
+}
+.barranav{
+  height: 100 px;
+  padding: 0;
+
+}
+
+.consulta{
+
+  margin: 10px;
+
+}
+
+.navbar{
+
+  padding: 10px;
+}
+
+.add{
+
+  margin-top: 10px;
+  height: 50px;
+  width: 250px;
+
+}
+.searchb{
+  padding: auto;
+  text-align: center;
+  height: 35px;
+  width: 100px;
+}
+
+.letras{
+  color: #FFFFFF;
+  font-size: x-large;
+}
+.tablaMascotas{
+    margin-top:50px;
+    font-family: 'Open Sans', sans-serif; ;
+}
+.form-modal textarea{
+  
+    width: 100%;
+  }
+
