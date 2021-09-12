@@ -3,6 +3,7 @@ var vector=[];
 
 
 
+
 var duenos = [
   {
     id: 1,
@@ -35,23 +36,26 @@ var duenos = [
 
 ];
 
-
-const autoCompleteJS = new autoComplete({  placeHolder: "Buscar persona",
-data: {
-    src: duenos.map(index=>index.nombre),
+//autocompletador
+const autoCompleteJS = new autoComplete({
+  placeHolder: "Buscar persona",
+  data: {
+    src: duenos.map(index => index.nombre),
     cache: true,
-},
-resultItem: {
+  },
+  resultItem: {
     highlight: true
-},
-events: {
+  },
+  events: {
     input: {
-        selection: (event) => {
-            const selection = event.detail.selection.value;
-            autoCompleteJS.input.value = selection;
-        }
+      selection: (event) => {
+        const selection = event.detail.selection.value;
+        autoCompleteJS.input.value = selection;
+      }
     }
-} });
+  }
+});
+
 var mascotas = [
   {
     id: 1,
@@ -91,14 +95,14 @@ var mascotas = [
   },
 ];
 
-let mascotasD= duenos.map(function f(dueno, index){
-    mascotas.map(function m(mascota,ind){
-if(mascota.did==dueno.id){
-  duenos[index]["mascotas"].push(mascota)
-}
-    });
+let mascotasD = duenos.map(function f(dueno, index) {
+  mascotas.map(function m(mascota, ind) {
+    if (mascota.did == dueno.id) {
+      duenos[index]["mascotas"].push(mascota)
+    }
+  });
 
-  
+
 });
 
 var consultas = [{
@@ -778,3 +782,6 @@ function verConsultas(id){
   contenidoHTML.innerHTML=vector.join("");
 }
 btnBuscar.onclick = buscador;
+
+
+
