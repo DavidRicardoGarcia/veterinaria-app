@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.01.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -97,7 +97,7 @@
       <div class="container-fluid pestana">
         <div>
           <div class="autoComplete_wrapper"> <input type="search" dir="ltr" spellcheck=false autocorrect="off"
-              autocomplete="off" autocapitalize="off" id="autocomplete"> 
+              autocomplete="off" autocapitalize="off" id="autocomplete2"> 
             <a name="" id="btnBuscar3" onclick="busqueda()" class="btn btn-primary consulta"
               href="#" role="button">Buscar</a>
             <a name="" id="limpiar1" class="btn btn-primary consulta" href="#"
@@ -106,6 +106,7 @@
         </div>
         <div class="row" id="cuerpo1">
         </div>
+        <button type="button" class="btn btn-primary btn-lg add" data-toggle="modal" data-target="#modalCrearProducto">Nuevo producto</button>
       </div>
     </div>
 
@@ -113,7 +114,7 @@
       <div id="dp">
       </div> 
       <button type="button" class="btn btn-primary btn-lg consulta" data-toggle="modal" data-target="#modalNuevaConsulta">Nueva Consulta</button>
-
+      
     </div>
   </div>
 
@@ -266,6 +267,49 @@
       </div>
     </div>
 
+
+
+
+    <!------modal-crearProducto-->
+    <div class="modal fade" id="modalCrearProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header"style="background-color:#90CBFB";>
+            <h5 class="modal-title" style="color: black; font-weight: bold;" id="modalCrearConsulta">Nuevo Producto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form class="form-modal" id="form-modal">
+                <input type="hidden" id="indice">
+              <div class="form-group fdueno">
+                <label for="nombreD" class="col-form-label">Nombre del producto:</label>
+                <input type="text" class="form-control" id="fnombreD">
+              </div>
+              <div class="form-group">
+                  <label for="nombreM" class="col-form-label">Nombre del proveedor:</label>
+                  <input type="text" class="form-control" id="fnombreM">
+                  <label for="color" class="col-form-label">Precio:</label>
+                  <input type="text" class="form-control" id="color">
+                  <label for="alergias" class="col-form-label">Descripción:</label>
+                  <textarea  name="" id="alergias" cols="10" rows="4"></textarea>
+                </div>
+ 
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="guardar">Guardar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>    
+
 <!-- Modal -->
 <div class="modal" id="modal1" >
  
@@ -285,7 +329,19 @@
           </div>
       </div>
     </div>
-</div>    
+</div>  
+
+<footer class="text-center text-white fixed-bottom" style="background-color: #180957;">
+
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="#">Veterinary app</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 
 <!-- autocompleteJS-->
   <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>

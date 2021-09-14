@@ -26,8 +26,9 @@ body{
 .add{
 
   margin-top: 10px;
-  height: 50px;
-  width: 250px;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.2rem;
 
 }
 .searchb{
@@ -54,4 +55,18 @@ body{
   margin-top: 30px;
   margin-left: 5px;
 
+}
+
+.card-header{
+
+background-color: rgb(29, 18, 92);
+margin: 0;
+border: 1px;
+color: #FFFFFF;
+
+}
+
+.card{
+
+  padding: 0;
 }
