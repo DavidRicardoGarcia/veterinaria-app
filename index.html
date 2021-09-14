@@ -111,9 +111,19 @@
     </div>
 
     <div class="tab-pane fade" id="agenda" role="tabpanel" aria-labelledby="agenda-tab">
-      <div id="dp">
-      </div> 
-      <button type="button" class="btn btn-primary btn-lg consulta" data-toggle="modal" data-target="#modalNuevaConsulta">Nueva Consulta</button>
+      <div style="display: flex;">
+        <div style="margin-right: 10px;">
+          <div id="nav"></div>
+        </div>
+        <div style="flex-grow: 1;">
+          <div id="dp"></div>
+          <button type="button" class="btn btn-primary btn-lg calendario" data-toggle="modal" data-target="#modalNuevaConsulta">Nueva Consulta</button>
+          <button type="button" class="btn btn-primary btn-lg calendario" data-toggle="modal" data-target="#modalEditarConsulta">Editar Consulta</button>
+          <button type="button" class="btn btn-primary btn-lg calendario" data-toggle="modal" data-target="#modalEliminarConsulta">Eliminar Consulta</button>
+ 
+        </div>
+      </div>
+     
       
     </div>
   </div>
@@ -346,7 +356,7 @@
 <!-- autocompleteJS-->
   <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>
 
-
+<script src="js/daypilot/daypilot-all.min.js" type="text/javascript"></script>
 <script src="js/jquery-3.6.0.slim.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
@@ -355,8 +365,8 @@
 <script src="js/inventario.js"></script>
 <script src="js/calendario.js"></script>
 <!-- MDB -->
-<script src="js/daypilot/daypilot-all.min.js" type="text/javascript"></script>
- <script>
+
+ <!-- <script>
 
   const dp = new DayPilot.Calendar("dp");
   dp.viewType = "Week";
@@ -364,7 +374,7 @@
   dp.events.list = eventos;
   dp.update();
 
- </script>
+ </script> -->
 
 
 </body>
